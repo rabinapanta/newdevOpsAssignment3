@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DevOps Solutions</title>
+    
+   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Styling the header with a gradient background and some padding */
+        header {
+            background: linear-gradient(to right, #27ae60, #2ecc71);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #2ecc71;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: #ecf0f1;
+            transform: scale(1.1);
+        }
+
+        /* Section padding and centering content */
+        section {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            color: #27ae60;
+            margin-bottom: 1.5rem;
+        }
+
+        .content p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer with a simple and clean style */
+        footer {
+            background-color: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            font-size: 1rem;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adding subtle animations for the sections */
+        section, footer {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with a gradient background and a bold title -->
+    <header>
+        <h1>Welcome to DevOps Solutions</h1>
+    </header>
+
+    <!-- Navigation bar with hover effects -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Main content area with better spacing and typography -->
+    <section>
+        <div class="content">
+            <h2>Empowering DevOps Transformation</h2>
+            <p>At DevOps Solutions, we specialize in streamlining development and operations processes through automation, continuous integration, and continuous delivery (CI/CD).</p>
+            <p>Our DevOps services help organizations achieve faster releases, improved collaboration, and more reliable systems. By adopting the latest in cloud infrastructure, containerization, and monitoring tools, we ensure smooth deployment pipelines and stable environments.</p>
+            <p>Join us as we bridge the gap between developers and operations teams to enhance agility, speed, and quality.</p>
+        </div>
+    </section>
+    <!-- Button for /api -->
+    <button id="fetch-api">Fetch API Message</button>
+    <p id="api-message"></p>
+
+    <!-- Button for /api/devops -->
+    <button id="fetch-devops">Fetch DevOps API</button>
+    <p id="devops-message"></p>
+
+    <!-- Button for /api/data -->
+    <button id="fetch-data">Fetch Data API</button>
+    <p id="data-message"></p>
+
+
+    <footer>
+        <p>&copy; 2024 DevOps Solutions. All rights reserved.</p>
+    </footer>
+    <script>
+        // Fetch from /api
+        document.getElementById('fetch-api').addEventListener('click', () => {
+            fetch('/api')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('api-message').innerText = data.message;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Fetch from /api/devops
+        document.getElementById('fetch-devops').addEventListener('click', () => {
+            fetch('/api/devops')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('devops-message').innerText = data.message;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Fetch from /api/data
+        document.getElementById('fetch-data').addEventListener('click', () => {
+            fetch('/api/data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('data-message').innerText = `${data.name}: ${data.description}`;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+
+    </script>
+</body>
+</html>
