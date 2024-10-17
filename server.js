@@ -26,14 +26,6 @@ app.get('/api/data', (req,res)=>{
     });
 });
 
-//server status
-app.get('/api/status', (req,res) =>{
-    res.json({
-        status: 'Server is up and running.',
-        uptime: process.uptime() + 'seconds'
-    });
-});
-
 //rtoute for serving the index.html
 app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
